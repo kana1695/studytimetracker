@@ -67,27 +67,22 @@ class _MyHomePageState extends State<MyHomePage> {
                 TextField(
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
-                    hintText: count < 7
+                    hintText:
+                        count <
+                            7 //weekly
                         ? 'Enter study hours'
                         : 'Reset to start a new week',
                   ),
                   controller: hourController,
                 ),
                 SizedBox(height: 10),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    ElevatedButton(
-                      onPressed: submit,
-                      child: const Text('Submit'),
-                    ),  
-                    ElevatedButton(
-                      onPressed: () {
-                        reset();
-                      },
-                      child: const Text('Reset'),
-                    ),
-                  ],
+
+                ElevatedButton(onPressed: submit, child: const Text('Submit')),
+                ElevatedButton(
+                  onPressed: () {
+                    reset();
+                  },
+                  child: const Text('Reset'),
                 ),
                 SizedBox(height: 20),
                 Text(
@@ -114,30 +109,29 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void submit() {
     setState(() {
-                          totalHours += double.parse(hourController.text);
-                          totalHours = totalHours;
-                          count++;
+      totalHours += double.parse(hourController.text);
+      totalHours = totalHours;
+      count++;
 
-                          if (count == 7) {
-                            //weekly tracker
-                            if (totalHours >= 15) {
-                              currentImage = 'assets/images/happy.jpg';
-                              message = 'Great job!';
-                              player.play(AssetSource('audios/wow.mp3'));
-                            } else if (totalHours >= 8) {
-                              currentImage = 'assets/images/study_hard.jpg';
-                              message = 'You can do better!';
-                              player.play(AssetSource('audios/i_got_this.mp3'));
-                            } else {
-                              currentImage = 'assets/images/shocked.jpg';
-                              message = 'You need to study more...';
-                              player.play(AssetSource('audios/ack.mp3'));
-                            }
-                          }
-                        });
-                        hourController.clear();
-                      
+      if (count == 7) {
+        if (totalHours >= 15) {
+          currentImage = 'assets/images/happy.jpg';
+          message = 'Great job!';
+          player.play(AssetSource('audios/wow.mp3'));
+        } else if (totalHours >= 8) {
+          currentImage = 'assets/images/study_hard.jpg';
+          message = 'You can do better!';
+          player.play(AssetSource('audios/i_got_this.mp3'));
+        } else {
+          currentImage = 'assets/images/shocked.jpg';
+          message = 'You need to study more...';
+          player.play(AssetSource('audios/ack.mp3'));
+        }
+      }
+    });
+    hourController.clear();
   }
+
   void reset() {
     setState(() {
       totalHours = 0;
