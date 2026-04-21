@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
       home: MyHomePage(),
     );
   }
-}2
+}
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
