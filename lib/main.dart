@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 SizedBox(height: 10),
                 TextField(
+                  enabled: count < 7, //disabled when week completed 
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText:
@@ -117,8 +118,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void submit() {
     setState(() {
-      totalHours += double.parse(hourController.text);
-      totalHours = totalHours;
+      double hours = double.tryParse(hourController.text) ?? 0.0;
+      totalHours += hours;
       count++;
 
       if (count == 7) {
