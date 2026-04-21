@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
       home: MyHomePage(),
     );
   }
-}
+}2
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -123,11 +123,11 @@ class _MyHomePageState extends State<MyHomePage> {
       count++;
 
       if (count == 7) {
-        if (totalHours >= 15) {
+        if (totalHours >= 10) {
           currentImage = 'assets/images/happy.jpg';
           message = 'Great job!';
           player.play(AssetSource('audios/wow.mp3'));
-        } else if (totalHours >= 8) {
+        } else if (totalHours >= 5) {
           currentImage = 'assets/images/study_hard.jpg';
           message = 'You can do better!';
           player.play(AssetSource('audios/i_got_this.mp3'));
