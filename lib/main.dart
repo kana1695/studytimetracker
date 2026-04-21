@@ -76,13 +76,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   controller: hourController,
                 ),
                 SizedBox(height: 10),
-                ElevatedButton(onPressed: submit, child: const Text('Submit')),
-                ElevatedButton(
-                  onPressed: () {
-                    reset();
-                  },
-                  child: const Text('Reset'),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    ElevatedButton(
+                      onPressed: submit,
+                      child: const Text('Submit'),
+                    ),
+                    ElevatedButton(
+                      onPressed: () {
+                        reset();
+                      },
+                      child: const Text('Reset'),
+                    ),
+                  ],
                 ),
+
                 SizedBox(height: 20),
                 Text(
                   'Total study hours: $totalHours',
