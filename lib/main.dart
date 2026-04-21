@@ -65,12 +65,11 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
                 SizedBox(height: 10),
                 TextField(
-                  enabled: count < 7, //disabled when week completed 
+                  enabled: count < 7, //disabled when week completed
                   decoration: InputDecoration(
                     border: OutlineInputBorder(),
                     hintText:
-                        count <
-                            7 //weekly
+                        count < 7 //weekly
                         ? 'Enter study hours'
                         : 'Reset to start a new week',
                   ),
@@ -123,11 +122,11 @@ class _MyHomePageState extends State<MyHomePage> {
       count++;
 
       if (count == 7) {
-        if (totalHours >= 10) {
+        if (totalHours >= 13) {
           currentImage = 'assets/images/happy.jpg';
           message = 'Great job!';
           player.play(AssetSource('audios/wow.mp3'));
-        } else if (totalHours >= 5) {
+        } else if (totalHours >= 8) {
           currentImage = 'assets/images/study_hard.jpg';
           message = 'You can do better!';
           player.play(AssetSource('audios/i_got_this.mp3'));
