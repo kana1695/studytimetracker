@@ -37,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   TextEditingController hourController = TextEditingController();
   int count = 0;
   double totalHours = 0;
-  String message = '';
+  String message = 'Study Time!';
   String currentImage = 'assets/images/lock_in.jpg';
 
   @override
@@ -146,7 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
       totalHours = 0;
       count = 0;
       currentImage = 'assets/images/lock_in.jpg';
-      message = '';
+      message = 'Study Time!';
     });
   }
 }
